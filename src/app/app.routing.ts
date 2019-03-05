@@ -5,15 +5,21 @@ import { AccountComponent } from './_layout/account/account.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
+import { InstructorComponent } from './instructor/instructor.component';
 
 const routes: Routes = [
     {
-        path: '', component: AdminComponent, children: [
-            { path: '', component: HomeComponent }
+        path: 'admin', component: AdminComponent, children: [
+            { 
+                path: 'dashboard', component: HomeComponent 
+            },
+            {
+                path: 'instructor', component: InstructorComponent
+            }
         ]
     },
     {
-        path: 'account', component: AccountComponent, children: [
+        path: 'admin/account', component: AccountComponent, children: [
             { path: '', component: LoginComponent },
             { path: 'register', component: RegisterComponent }
         ]

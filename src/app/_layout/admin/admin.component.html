@@ -10,78 +10,9 @@
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Schedule
-              <span class="badge badge-primary ml-1">New</span>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a href="#" class="nav-link">
-              <i class="mdi mdi-elevation-rise"></i>Reports</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
-          </li>
-        </ul>
+       
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown"
-              aria-expanded="false">
-              <i class="mdi mdi-file-document-box"></i>
-              <span class="count">7</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <div class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
-                </p>
-                <span class="badge badge-info badge-pill float-right">View all</span>
-              </div>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="./assets/images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
-                    <span class="float-right font-weight-light small-text">1 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    The meeting is cancelled
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="./assets/images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
-                    <span class="float-right font-weight-light small-text">15 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    New product launch
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="./assets/images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
-                    <span class="float-right font-weight-light small-text">18 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    Upcoming board meeting
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
+         
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-bell"></i>
@@ -140,7 +71,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text">Hello, {{name}} !</span>
               <img class="img-xs rounded-circle" src="./assets/images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -162,9 +93,6 @@
               </a>
               <a class="dropdown-item">
                 Change Password
-              </a>
-              <a class="dropdown-item">
-                Check Inbox
               </a>
               <a class="dropdown-item">
                 Sign Out
@@ -190,14 +118,11 @@
                   <img src="./assets/images/faces/face1.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
-                  <div>
-                    <small class="designation text-muted">Manager</small>
-                    <span class="status-indicator online"></span>
-                  </div>
+                  <p class="profile-name">{{name}} </p>
+                 
                 </div>
               </div>
-              <button class="btn btn-success btn-block">New Project
+              <button class="btn btn-success btn-block">New Employee
                 <i class="mdi mdi-plus"></i>
               </button>
             </div>
@@ -206,6 +131,12 @@
             <a class="nav-link" href="index.html">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/instructor']">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Employees</span>
             </a>
           </li>
           <li class="nav-item">

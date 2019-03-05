@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AccountService } from '../account.service';
+import { CommonService } from '../../common/common.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +10,26 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  public email: String;
+  public password: String;
+  constructor(private _router: Router, private _accountService: AccountService, private _commonService: CommonService) { }
 
   ngOnInit() {
   }
-  login(){
-    this._router.navigate(['/']);
+  login() {
+    let loginmodel: any = {};
+    loginmodel.email = this.email;
+    loginmodel.password = this.password;
+
+    this._accountService.login(loginmodel).subscribe(res => {
+      debugger;
+      if (res.token != undefined) {
+        this._commonService.setLocalStorageValue('token', res.token);
+        this._commonService.setLocalStorageValue('name', res.name);
+        this._router.navigate(['/admin/dashboard']);
+      }
+    })
+
+
   }
 }
