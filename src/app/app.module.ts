@@ -13,6 +13,7 @@ import { AccountComponent } from './_layout/account/account.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { CreateComponent } from './instructor/create/create.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { InstructorComponent } from './instructor/instructor.component';
     LoginComponent,
     AccountComponent,
     RegisterComponent,
-    InstructorComponent
+    InstructorComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

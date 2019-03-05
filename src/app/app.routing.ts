@@ -6,15 +6,19 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { CreateComponent } from './instructor/create/create.component';
 
 const routes: Routes = [
     {
         path: 'admin', component: AdminComponent, children: [
-            { 
-                path: 'dashboard', component: HomeComponent 
+            {
+                path: 'dashboard', component: HomeComponent
             },
             {
-                path: 'instructor', component: InstructorComponent
+                path: 'instructor', component: InstructorComponent, children:
+                    [
+                        { path: 'create', component: CreateComponent }
+                    ]
             }
         ]
     },
