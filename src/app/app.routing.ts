@@ -6,7 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { InstructorComponent } from './instructor/instructor.component';
-import { CreateComponent } from './instructor/create/create.component';
+import { InstructorCreateComponent } from './instructor/create/create.component';
+import { InstructorListComponent } from './instructor/list/list.component';
+import { InstructorInfoComponent } from './instructor/info/info.component';
+
+import { BookingComponent } from './booking/booking.component';
+import { BookingListComponent } from './booking/list/list.component';
 
 const routes: Routes = [
     {
@@ -17,9 +22,25 @@ const routes: Routes = [
             {
                 path: 'instructor', component: InstructorComponent, children:
                     [
-                        { path: 'create', component: CreateComponent }
+                        {
+                            path: 'create', component: InstructorCreateComponent
+                        },
+                        {
+                            path: 'list', component: InstructorListComponent
+                        },
+                        {
+                            path: 'edit/:id', component: InstructorInfoComponent
+                        }
                     ]
+            },
+            {
+                path: 'booking', component: BookingComponent, children: [
+                    {
+                        path: 'list', component: BookingListComponent
+                    }
+                ]
             }
+
         ]
     },
     {
