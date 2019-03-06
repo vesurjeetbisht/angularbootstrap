@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InstructorService } from '../instructor.service';
 
 @Component({
   selector: 'app-create',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructorCreateComponent implements OnInit {
 
-  public model:any={};
-  constructor() { }
+  public model: any = {};
+  constructor(private _instructorService: InstructorService) { }
 
   ngOnInit() {
   }
-  createEmployee(){
-    alert()
+  createEmployee() {
+    this._instructorService.registerEmployee(this.model).subscribe(res => {
+      alert(res);
+    })
   }
 }

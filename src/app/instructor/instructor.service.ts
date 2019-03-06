@@ -14,6 +14,6 @@ export class InstructorService {
     return this._http.post(this.apiUrl + 'admin/instructor/create', model);
   }
   public employeeList() {
-    return this._http.get(this.apiUrl + 'instructor/list');
+    return this._http.get(this.apiUrl + 'instructor');
   }
 }
