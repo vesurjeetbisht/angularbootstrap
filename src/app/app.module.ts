@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularWebStorageModule } from 'angular-web-storage';
 import { routing } from './app.routing';
-
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -43,7 +43,7 @@ import { BookingListComponent } from './booking/list/list.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule, HttpClientModule,AngularWebStorageModule,
-    routing
+    routing,ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,75 +10,24 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Product</th>
-                  <th>Sale</th>
-                  <th>Status</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>City</th>
+                  <th>Postcode</th>
                   <th></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Jacob</td>
-                  <td>Photoshop</td>
-                  <td class="text-danger"> 28.76%
-                    <i class="mdi mdi-arrow-down"></i>
-                  </td>
-                  <td>
-                    <label class="badge badge-danger">Pending</label>
-                  </td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" [routerLink]="['/admin/instructor/edit',1]" value="Edit"></td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" value="Delete"></td>
+                <tr *ngFor="let instructor of InstructorList">
+                  <td>{{instructor.instructor_name}}</td>
+                  <td>{{instructor.instructor_email}}</td>
+                  <td>{{instructor.instructor_city}}</td>
+                  <td>{{instructor.instructor_postcode}}</td>
+                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" [routerLink]="['/admin/instructor/edit',instructor._id]" value="Edit"></td>
+                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" (click)="removeEmployee(instructor)" value="Delete"></td>
                 </tr>
-                <tr>
-                  <td>Messsy</td>
-                  <td>Flash</td>
-                  <td class="text-danger"> 21.06%
-                    <i class="mdi mdi-arrow-down"></i>
-                  </td>
-                  <td>
-                    <label class="badge badge-warning">In progress</label>
-                  </td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" value="Edit"></td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" value="Delete"></td>
-                </tr>
-                <tr>
-                  <td>John</td>
-                  <td>Premier</td>
-                  <td class="text-danger"> 35.00%
-                    <i class="mdi mdi-arrow-down"></i>
-                  </td>
-                  <td>
-                    <label class="badge badge-info">Fixed</label>
-                  </td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" value="Edit"></td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" value="Delete"></td>
-                </tr>
-                <tr>
-                  <td>Peter</td>
-                  <td>After effects</td>
-                  <td class="text-success"> 82.00%
-                    <i class="mdi mdi-arrow-up"></i>
-                  </td>
-                  <td>
-                    <label class="badge badge-success">Completed</label>
-                  </td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" value="Edit"></td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" value="Delete"></td>
-                </tr>
-                <tr>
-                  <td>Dave</td>
-                  <td>53275535</td>
-                  <td class="text-success"> 98.05%
-                    <i class="mdi mdi-arrow-up"></i>
-                  </td>
-                  <td>
-                    <label class="badge badge-warning">In progress</label>
-                  </td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-success btn-fw" value="Edit"></td>
-                  <td style="width:3%"><input type="button" class="btn btn-sm btn-danger btn-fw" value="Delete"></td>
-                </tr>
+             
               </tbody>
             </table>
           </div>

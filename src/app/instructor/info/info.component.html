@@ -6,39 +6,48 @@
         <div class="card-body">
           <h4 class="card-title">Edit Employee</h4>
           
-          <form class="forms-sample">
+          <form class="forms-sample" autocomplete="off" #f="ngForm" (ngSubmit)="f.form.valid && updateEmployee()" novalidate>
             <div class="form-group">
-              <label for="exampleInputName1">Name</label>
-              <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+              <label for="firstName">First Name</label>
+              <input type="hidden" name="_id" [(ngModel)]="model._id" >
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="model.instructor_name" #firstName="ngModel" 
+              [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" autocomplete="off" required />
+              <!-- <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                  <div *ngIf="firstName.errors.required">First Name is required</div>
+              </div> -->
+          </div>
+            <div class="form-group">
+              <label for="exampleTextarea1">About yourself</label>
+              <textarea class="form-control" id="exampleTextarea1" name="description" [(ngModel)]="model.instructor_description" #description="ngModel"
+              [ngClass]="{'is-invalid':f.submitted && description.invalid}"
+              rows="2" autocomplete="off" required></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail3">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="model.instructor_email"
+               #email="ngModel" [ngClass]="{'is-invalid':f.submitted && email.invalid}" autocomplete="off" required>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword4">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label>File upload</label>
-              <input type="file" name="img[]" class="file-upload-default">
-              <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                <span class="input-group-append">
-                  <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                </span>
-              </div>
+              <input type="password" class="form-control" placeholder="Password" [ngClass]="{'is-invalid':f.submitted && password.invalid}"
+                     name="password" [(ngModel)]="model.instructor_password" #password="ngModel" autocomplete="off" required>
             </div>
             <div class="form-group">
               <label for="exampleInputCity1">City</label>
-              <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+              <input type="text" class="form-control" #city="ngModel" [(ngModel)]="model.instructor_city" name="city"
+              [ngClass]="{'is-invalid':f.submitted && city.invalid}"
+              placeholder="Location" autocomplete="off" required>
             </div>
             <div class="form-group">
-              <label for="exampleTextarea1">Textarea</label>
-              <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+              <label for="exampleInputCity1">Postcode</label>
+              <input type="text" class="form-control" 
+              #postcode="ngModel" name="postcode" [(ngModel)]="model.instructor_postcode"
+              [ngClass]="{'is-invalid':f.submitted && postcode.invalid}"
+              placeholder="Postcode" autocomplete="off" required>
             </div>
+
             <button type="submit" class="btn btn-success mr-2">Submit</button>
-            <button class="btn btn-light">Cancel</button>
+            <a class="btn btn-light" [routerLink]="['/admin/instructor/list']">Cancel</a>
           </form>
         </div>
       </div>

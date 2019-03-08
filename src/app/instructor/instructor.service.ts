@@ -13,7 +13,13 @@ export class InstructorService {
   public registerEmployee(model: any) {
     return this._http.post(this.apiUrl + 'admin/instructor/create', model);
   }
-  public employeeList() {
-    return this._http.get(this.apiUrl + 'instructor');
+  public employeeList(): any {
+    return this._http.get(this.apiUrl + 'admin/instructor/list');
+  }
+  public employeeInfo(empID: String): any {
+    return this._http.post(this.apiUrl + 'admin/instructor/info', { empid: empID });
+  }
+  public deleteEmployee(model: any): any {
+    return this._http.post(this.apiUrl + 'admin/instructor/delete', model);
   }
 }
