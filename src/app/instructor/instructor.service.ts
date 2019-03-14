@@ -22,4 +22,7 @@ export class InstructorService {
   public deleteEmployee(model: any): any {
     return this._http.post(this.apiUrl + 'admin/instructor/delete', model);
   }
+  public uploadImage(model:any):any{
+    return this._http.post(this.apiUrl + 'admin/instructor/uploadimage', model);
+  }
 }
